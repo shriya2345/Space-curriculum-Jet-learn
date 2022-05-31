@@ -1,0 +1,102 @@
+<html>
+<!--importing libraries and js files-->
+<head>
+    <meta charset="utf-8">
+    <title>Solar System</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="./planet.js"></script>
+    <script src="./planet-rotation.js"></script>
+</head>
+
+<body>
+    <a-scene background="color:#000000">
+<!--getting assets-->
+        <a-assets>
+            <img id="space" src="images/space2.jpg" />
+            <img id="sun" src="images/sun.jpg" />
+            <img id="mercury" src="images/mercury.jpg" />
+            <img id="venus" src="images/venus.jpg" />
+            <img id="earth" src="images/earth.jpg" />
+            <img id="mars" src="images/mars.jpg" />
+            <img id="jupiter" src="images/jupiter.jpg" />
+            <img id="saturn" src="images/saturn.jpg" />
+            <img id="rings" src="images/rings.png" />
+            <img id="uranus" src="images/uranus.jpg" />
+            <img id="neptune" src="images/neptune.jpg" />
+        </a-assets>
+       <!--fixing cam angle-->
+        <a-entity id="cam" position="0 20 50">
+            <a-entity camera look-controls>
+                <a-entity  position="1 0.5 -2" scale="2 2 2" text="side:double"></a-entity>
+                        </a-entity>
+                    </a-entity>
+        
+<!--creating sky, sun and planets-->
+        <a-sky src="#space"></a-sky>
+
+        <!--Sun-->
+        <a-sphere src="#sun"  radius="15"></a-sphere>
+
+        <!--Mercury-->
+        <a-sphere src="#mercury" 
+            planet="tRevol:200000;semiAxe:10;angularStart:260" planet-rotation="tRotation:3000" radius="2">
+        </a-sphere>
+        <a-ring radius-inner="19.8" radius-outer="20.2" rotation="-90 0 0"></a-ring>
+
+        <!--Venus-->
+        <a-entity planet="tRevol:300000;semiAxe:15;angularStart:40" rotation="177 0 0">
+            <a-sphere src="#venus" planet-rotation="tRotation:4000"
+                radius="2">
+            </a-sphere>
+        </a-entity>
+        <a-ring radius-inner="29.8" radius-outer="30.2" rotation="-90 0 0"></a-ring>
+
+        <!--Earth-->
+        <a-entity planet rotation="23 0 0">
+            <a-sphere src="#earth"  planet-rotation= "tRotation:4000" radius="2"></a-sphere>
+        </a-entity>
+        <a-ring radius-inner="39.8" radius-outer="40.2" rotation="-90 0 0"></a-ring>
+
+        <!--Mars-->
+        <a-entity planet="tRevol:600000;semiAxe:25;angularStart:130" rotation="25 0 0">
+            <a-sphere src="#mars" planet-rotation="tRotation:6000"
+                radius="2"></a-sphere>
+        </a-entity>
+        <a-ring radius-inner="49.8" radius-outer="50.2" rotation="-90 0 0"></a-ring>
+
+        <!--Jupiter-->
+        <a-entity planet="tRevol:700000;semiAxe:30;angularStart:90" rotation="3 0 0">
+            <a-sphere src="#jupiter" planet-rotation="tRotation:7000" 
+                radius="4">
+            </a-sphere>
+        </a-entity>
+        <a-ring radius-inner="59.8" radius-outer="60.2" rotation="-90 0 0"></a-ring>
+
+        <!--Saturn-->
+        <a-entity planet="tRevol:800000;semiAxe:35;angularStart:220" rotation="27 0 0">
+            <a-sphere src="#saturn" planet-rotation="tRotation:8000"
+                radius="4">
+                <a-circle radius="6" src="#rings" position="0 0 0" rotation="-90 0 0" material="side:double ">
+                </a-circle>
+            </a-sphere>
+        </a-entity>
+        <a-ring radius-inner="69.8" radius-outer="70.2" rotation="-90 0 0"></a-ring>
+
+        <!--Uranus-->
+        <a-entity planet="tRevol:900000;semiAxe:40;angularStart:200" rotation="98 0 0">
+            <a-sphere src="#uranus"  planet-rotation="tRotation:9000"
+                radius="3"></a-sphere>
+        </a-entity>
+        <a-ring radius-inner="79.8" radius-outer="80.2" rotation="-90 0 0"></a-ring>
+
+        <!--Neptune-->
+        <a-entity planet="tRevol:1000000;semiAxe:45;angularStart:300" rotation="30 0 0">
+            <a-sphere src="#neptune"  planet-rotation="tRotation:10000"
+                radius="3"></a-sphere>
+        </a-entity>
+        <a-ring radius-inner="89.8" radius-outer="90.2" rotation="-90 0 0"></a-ring>
+
+    </a-scene>
+</body>
+
+</html>
